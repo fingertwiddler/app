@@ -23,7 +23,8 @@ export class View {
         }
       }
     });
-    this.editor.eventManager.addEventType('clickCustomButton');
+    this.editor.eventManager.addEventType('full-expand')
+    this.editor.eventManager.addEventType('medium-expand')
     this.editor.eventManager.listen('full-expand', () => {
       const textObj = this.editor.getTextObject();
       textObj.replaceContent(`<div class='full'>\n\n${textObj.getTextContent()}\n\n</div>`);
