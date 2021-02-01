@@ -8,6 +8,9 @@
     "from": "/about",
     "to": "/bin/engine/about.html"
   }, {
+    "from": "/about/:x.:ext",
+    "to": "/bin/{{x}}.{{ext}}"
+  }, {
     "from": "/js/:filename.js",
     "to": "/bin/engine/js/{{filename}}.js",
     "type": "application/javascript"
