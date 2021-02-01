@@ -12,9 +12,6 @@ export class View {
       usageStatistics: false,
       previewStyle: 'vertical',
       events: {
-        load: () => {
-          this.loaded = true;
-        },
         change: () => {
           if (this.loaded) {
             document.querySelector("#save").classList.add("enabled")
@@ -101,6 +98,7 @@ export class View {
   async fill (path) {
     let { content, data, raw }  = await this.model.load(path)
     this.editor.setMarkdown(raw)
+    this.editor.loaded = true;
     if (data.draft) {
       document.querySelector("#unpublish").classList.add("hidden")
       document.querySelector(".draft").classList.remove("hidden")
