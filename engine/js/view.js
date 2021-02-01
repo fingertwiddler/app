@@ -23,6 +23,26 @@ export class View {
         }
       }
     });
+    this.editor.eventManager.addEventType('clickCustomButton');
+    this.editor.eventManager.listen('clickCustomButton', function() {
+      alert('Click!');
+      const textObj = this.editor.getTextObject();
+      const range = this.editor.getRange();
+      textObj.setEndBeforeRange(range);
+      textObj.replaceContent('hello editor world!');
+    });
+
+    const toolbar = this.editor.getUI().getToolbar();
+    toolbar.insertItem(0, {
+      type: 'button',
+      options: {
+        className: 'first',
+        event: 'clickCustomButton',
+        tooltip: 'Custom Button',
+        text: '@',
+        style: 'background:none;border-color:lime;'
+      }
+    });
     if (this.model.src) this.fill(this.model.src)
     document.querySelector("#delete").addEventListener("click", async (e) => {
       if (!this.model.src) return;
