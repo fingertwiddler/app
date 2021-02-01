@@ -156,17 +156,24 @@ nav button.enabled, nav .button.enabled {
   width: 30px !important;
   font-weight: bold !important;
 }
+.separator {
+  width: 1px;
+  background: rgba(0,0,0,0.2);
+  height: 100%;
+  margin: 0 5px;
+}
 </style>
 </head>
 <body>
 <nav>
 <a class='brand' href='./'>Offbase</a>
 <a target="_blank" href="./about" class='link'>help</a>
-<button id='delete' class='button'>delete</button>
 <div class='flexible'></div>
 <div class='draft hidden'>private</div>
 <button id='save' class='button'>save</button>
+<button id='delete' class='button enabled'>delete</button>
 <button id='preview' class='enabled'>preview</button>
+<div class='separator'></div>
 <button id='unpublish' class='enabled'>unpublish</button>
 <button id='publish' class='enabled'>publish</button>
 </nav>
