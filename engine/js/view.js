@@ -25,11 +25,12 @@ export class View {
     });
     this.editor.eventManager.addEventType('clickCustomButton');
     this.editor.eventManager.listen('clickCustomButton', () => {
-      alert('Click!');
       const textObj = this.editor.getTextObject();
+      /*
       const range = this.editor.getRange();
       textObj.setEndBeforeRange(range);
-      textObj.replaceContent("<div class='full-image'>");
+      */
+      textObj.replaceContent(`<div class='full-image'>\n${textObj.getTextContent()}\n</div>`);
     });
 
     const toolbar = this.editor.getUI().getToolbar();
