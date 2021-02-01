@@ -40,7 +40,7 @@ export class View {
         el: (() => {
           const button = document.createElement('button');
           button.className = 'expand';
-          button.innerHTML = "&lt; &gt;"
+          button.innerHTML = "(( ))"
           return button;
         })(),
         event: 'clickCustomButton',
