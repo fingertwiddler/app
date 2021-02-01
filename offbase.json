@@ -22,6 +22,9 @@
     "to": "/bin/engine/index.html",
     "type": "text/html"
   }, {
+    "from": "/preview/:path",
+    "to": "/home/dest/post/{{path}}/index.html"
+  }, {
     "from": "/lib/:path",
     "to": "/lib/{{path}}/index.js",
     "type": "application/javascript"

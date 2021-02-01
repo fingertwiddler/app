@@ -70,6 +70,11 @@ export class View {
         location.href = "/upload"
       }
     })
+    document.querySelector("#preview").addEventListener("click", async (e) => {
+      if (this.model.src) {
+        window.open("/preview/" + this.model.src.split("/")[3], "_blank")
+      }
+    })
     document.querySelector("#unpublish").addEventListener("click", async (e) => {
       await this.model.unpublish(this.content())
       location.href = "/upload"
