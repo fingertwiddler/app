@@ -142,10 +142,10 @@ export class Model {
     await this.fs.promises.rmdir(`${this.config.settings.DEST}/post/${name}`).catch((e) => {
       console.log("E2", e)
     })
-    let d = await this.deleted()
-    for(let item of d) {
-      await this.git.remove({ fs: this.fs, dir: "/home", filepath: item[0] })
-    }
+//    let d = await this.deleted()
+//    for(let item of d) {
+//      await this.git.remove({ fs: this.fs, dir: "/home", filepath: item[0] })
+//    }
     await this.builder.build()
   }
   async saveImage(blob, callback) {

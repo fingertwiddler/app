@@ -62,7 +62,7 @@ export class Builder {
       else publicItems.push(item)
     }
     for(let item of privateItems) {
-      await this.fs.promises.unlink(`${this.config.settings.DEST}/${item.key}/index.html`)
+      await this.fs.promises.unlink(`${this.config.settings.DEST}/post/${item.key}/index.html`)
     }
     publicItems.sort((a, b) => {
       return parseInt(b.data.updated) - parseInt(a.data.updated);
