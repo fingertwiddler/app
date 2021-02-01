@@ -6,7 +6,7 @@
     "to": "/home/src/assets/{{path}}"
   }, {
     "from": "/about",
-    "to": "/bin/engine/abont.html"
+    "to": "/bin/engine/about.html"
   }, {
     "from": "/js/:filename.js",
     "to": "/bin/engine/js/{{filename}}.js",

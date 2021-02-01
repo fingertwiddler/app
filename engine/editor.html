@@ -53,6 +53,12 @@ nav .draft {
 .hidden {
   display: none;
 }
+nav .link {
+  color: rgba(0,0,0,0.8);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 5px;
+}
 nav button, nav .button {
   margin: 5px;
   padding: 5px 10px;
@@ -155,11 +161,11 @@ nav button.enabled, nav .button.enabled {
 <body>
 <nav>
 <a class='brand' href='./'>Offbase</a>
-<a href="./about">help</a>
-<button id='save' class='button'>save</button>
+<a href="./about" class='link'>help</a>
 <button id='delete' class='button'>delete</button>
 <div class='flexible'></div>
 <div class='draft hidden'>private</div>
+<button id='save' class='button'>save</button>
 <button id='preview' class='enabled'>preview</button>
 <button id='unpublish' class='enabled'>unpublish</button>
 <button id='publish' class='enabled'>publish</button>
