@@ -136,6 +136,8 @@ export class Model {
     debugger;
     await this.fs.promises.unlink(`${this.config.settings.SRC}/${name}/index.html`).catch((e) => { })
     await this.fs.promises.rmdir(`${this.config.settings.SRC}/${name}`).catch((e) => {})
+    await this.fs.promises.unlink(`${this.config.settings.DEST}/${name}/index.html`).catch((e) => { })
+    await this.fs.promises.rmdir(`${this.config.settings.DEST}/${name}`).catch((e) => {})
     let d = await this.deleted()
     for(let item of d) {
       await this.git.remove({ fs: this.fs, dir: "/home", filepath: item[0] })
