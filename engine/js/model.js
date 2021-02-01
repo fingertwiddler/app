@@ -133,6 +133,7 @@ export class Model {
   async destroy() {
     await this.fs.promises.unlink(this.src)
     let name = this.src.split("/")[2]
+    debugger;
     await this.fs.promises.unlink(`${this.config.settings.SRC}/${name}/index.html`).catch((e) => { })
     await this.fs.promises.rmdir(`${this.config.settings.SRC}/${name}`).catch((e) => {})
     let d = await this.deleted()
