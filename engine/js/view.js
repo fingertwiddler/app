@@ -15,6 +15,8 @@ export class View {
         change: () => {
           if (this.loaded) {
             document.querySelector("#save").classList.add("enabled")
+          } else {
+            this.loaded = true;
           }
         }
       },
@@ -64,7 +66,6 @@ export class View {
       }
     });
     if (this.model.src) this.fill(this.model.src)
-    this.loaded = true;
     document.querySelector("#delete").addEventListener("click", async (e) => {
       if (!this.model.src) return;
       let sure = confirm("are you sure?")
