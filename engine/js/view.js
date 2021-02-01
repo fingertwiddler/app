@@ -72,7 +72,7 @@ export class View {
     })
     document.querySelector("#preview").addEventListener("click", async (e) => {
       if (this.model.src) {
-        window.open("/preview/" + decodeURIComponent(this.model.src.split("/")[3]), "_blank")
+        window.open("./preview/" + decodeURIComponent(this.model.src.split("/")[3]), "_blank")
       }
     })
     document.querySelector("#unpublish").addEventListener("click", async (e) => {
@@ -89,7 +89,7 @@ export class View {
         location.href = "./editor?src=" + path;
       } else {
         document.querySelector("#save").classList.remove("enabled")
-        this.editor.setMarkdown(updatedContent)
+//        this.editor.setMarkdown(updatedContent)
       }
     });
   }
