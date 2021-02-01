@@ -104,48 +104,25 @@
         color: rgba(0,0,0,0.5);
       }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
     <script id="template" type="text/x-handlebars-template">
       <nav>
-        <h1><a href="./">blog</a></h1>
+        <h1>README</h1>
         <div class='flexible'></div>
       </nav>
-      {{#if draft}}
-      <div class='draft'><div class='badge'>draft</div></div>
-      {{/if}}
-      <header><h1>{{title}}</h1></header>
-      <div class='meta'>
-        <div class='updated'>{{updated}}</div>
-        <div class='flexible'></div>
-        <a class='button' href="./editor?src={{filename}}">Edit</a>
-      </div>
       <main>{{{content}}}</main>
     </script>
   </head>
   <body>
     <script type='module'>
     import Handlebars from "https://jspm.dev/handlebars"
-    import matter from "https://jspm.dev/gray-matter"
     import marked from "https://jspm.dev/marked"
     import { fs } from "/offbase.js"
-    const src = new URL(location.href).searchParams.get("src")
     const template = Handlebars.compile(document.querySelector("#template").innerHTML)
-    fs.promises.readFile(src, "utf8").then((content) => {
-      let parsed = matter(content)
-      let md = parsed.content
-      let metadata = parsed.data
-      metadata.permalink = src
-      const html = marked(md, { baseUrl: "./" }) 
+    fs.promises.readFile("/bin/README.md", "utf8").then((content) => {
+      const html = marked(content)
       document.body.innerHTML = template({
         content: html,
-        updated: metadata.updated,
-        draft: metadata.draft,
-        filename: src,
-        title: metadata.title
       }).trim()
-      document.querySelectorAll(".updated").forEach((el) => {
-        el.textContent = timeago.format(parseInt(el.textContent))
-      })
     })
     </script>
   </body>

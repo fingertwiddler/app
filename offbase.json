@@ -5,6 +5,9 @@
     "from": "/assets/:path",
     "to": "/home/src/assets/{{path}}"
   }, {
+    "from": "/about",
+    "to": "/bin/engine/abont.html"
+  }, {
     "from": "/js/:filename.js",
     "to": "/bin/engine/js/{{filename}}.js",
     "type": "application/javascript"
