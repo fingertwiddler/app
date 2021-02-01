@@ -64,6 +64,7 @@ export class View {
       }
     });
     if (this.model.src) this.fill(this.model.src)
+    this.loaded = true;
     document.querySelector("#delete").addEventListener("click", async (e) => {
       if (!this.model.src) return;
       let sure = confirm("are you sure?")
@@ -98,7 +99,6 @@ export class View {
   async fill (path) {
     let { content, data, raw }  = await this.model.load(path)
     this.editor.setMarkdown(raw)
-    this.loaded = true;
     if (data.draft) {
       document.querySelector("#unpublish").classList.add("hidden")
       document.querySelector(".draft").classList.remove("hidden")
