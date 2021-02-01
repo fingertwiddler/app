@@ -132,7 +132,7 @@ export class Model {
   // Remove the current file from the file system, and then remove from git
   async destroy() {
     await this.fs.promises.unlink(this.src)
-    let name = this.src.split("/")[2]
+    let name = this.src.split("/")[3]
     debugger;
     await this.fs.promises.unlink(`${this.config.settings.SRC}/${name}/index.html`).catch((e) => { })
     await this.fs.promises.rmdir(`${this.config.settings.SRC}/${name}`).catch((e) => {})
