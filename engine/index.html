@@ -206,14 +206,14 @@
         return template({ items: [] })
       }
     }
-    document.querySelector("#upload").addEventListener("click", (e) => {
-      location.href = "/upload"
-    })
 
     render(Handlebars.compile(document.querySelector("#template").innerHTML), PATH).then((content) => {
       document.body.innerHTML = content
       document.querySelectorAll(".updated").forEach((el) => {
         el.textContent = timeago.format(parseInt(el.textContent))
+      })
+      document.querySelector("#upload").addEventListener("click", (e) => {
+        location.href = "/upload"
       })
     })
     </script>
