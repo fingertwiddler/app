@@ -24,12 +24,12 @@ export class View {
       }
     });
     this.editor.eventManager.addEventType('clickCustomButton');
-    this.editor.eventManager.listen('clickCustomButton', function() {
+    this.editor.eventManager.listen('clickCustomButton', () => {
       alert('Click!');
       const textObj = this.editor.getTextObject();
       const range = this.editor.getRange();
       textObj.setEndBeforeRange(range);
-      textObj.replaceContent('hello editor world!');
+      textObj.replaceContent("<div class='full-image'>");
     });
 
     const toolbar = this.editor.getUI().getToolbar();
