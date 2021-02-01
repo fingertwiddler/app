@@ -18,33 +18,13 @@
         background: rgba(0,0,0,0.05);
         border: none;
         height: 2px;
-        margin: 40px auto;
+        margin: 40px auto !important
       }
       h1 {
         font-size: 40px;
         line-height: 40px;
         font-family: Georgia;
         font-style: italic;
-      }
-      nav {
-        display: flex;
-        align-items: flex-start;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 50px 0px;
-      }
-      nav h1 {
-        font-size: 40px;
-        line-height: 40px;
-        margin: 0;
-      }
-      nav h1 a {
-        text-decoration: none;
-        color: rgba(0,0,0,0.8);
-        font-family: Georgia;
-        font-style: italic;
-        letter-spacing: -2px;
-        text-transform: lowercase;
       }
       h1 a {
         text-decoration: none;
@@ -114,10 +94,6 @@
       }
     </style>
     <script id="template" type="text/x-handlebars-template">
-      <nav>
-        <h1>README</h1>
-        <div class='flexible'></div>
-      </nav>
       <main>{{{content}}}</main>
     </script>
   </head>
