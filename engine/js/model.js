@@ -137,7 +137,7 @@ export class Model {
     await this.fs.promises.rmdir(`${this.config.settings.SRC}/${name}`).catch((e) => {})
     let d = await this.deleted()
     for(let item of d) {
-      await git.remove({ fs: this.fs, dir: "/home", filepath: item[0] })
+      await this.git.remove({ fs: this.fs, dir: "/home", filepath: item[0] })
     }
   }
   async saveImage(blob, callback) {
