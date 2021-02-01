@@ -24,13 +24,13 @@ export class View {
       }
     });
     this.editor.eventManager.addEventType('clickCustomButton');
-    this.editor.eventManager.listen('clickCustomButton', () => {
+    this.editor.eventManager.listen('full-expand', () => {
       const textObj = this.editor.getTextObject();
-      /*
-      const range = this.editor.getRange();
-      textObj.setEndBeforeRange(range);
-      */
-      textObj.replaceContent(`<div class='full-image'>\n\n${textObj.getTextContent()}\n\n</div>`);
+      textObj.replaceContent(`<div class='full'>\n\n${textObj.getTextContent()}\n\n</div>`);
+    });
+    this.editor.eventManager.listen('medium-expand', () => {
+      const textObj = this.editor.getTextObject();
+      textObj.replaceContent(`<div class='medium'>\n\n${textObj.getTextContent()}\n\n</div>`);
     });
 
     const toolbar = this.editor.getUI().getToolbar();
@@ -39,12 +39,25 @@ export class View {
       options: {
         el: (() => {
           const button = document.createElement('button');
-          button.className = 'expand';
+          button.className = 'full-expand';
+          button.innerHTML = "((( )))"
+          return button;
+        })(),
+        event: 'full-expand',
+        tooltip: 'make full width',
+      }
+    });
+    toolbar.insertItem(0, {
+      type: 'button',
+      options: {
+        el: (() => {
+          const button = document.createElement('button');
+          button.className = 'medium-expand';
           button.innerHTML = "(( ))"
           return button;
         })(),
-        event: 'clickCustomButton',
-        tooltip: 'make full width',
+        event: 'medium-expand',
+        tooltip: 'make medium width',
       }
     });
     if (this.model.src) this.fill(this.model.src)
