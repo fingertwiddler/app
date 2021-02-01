@@ -9,6 +9,9 @@
     "to": "/bin/engine/js/{{filename}}.js",
     "type": "application/javascript"
   }, {
+    "from": "/settings",
+    "to": "/lib/settings/index.html"
+  }, {
     "from": "/editor",
     "to": "/bin/engine/editor.html"
   }, {
