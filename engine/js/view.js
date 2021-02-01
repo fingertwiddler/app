@@ -12,8 +12,13 @@ export class View {
       usageStatistics: false,
       previewStyle: 'vertical',
       events: {
+        load: () => {
+          this.editor.loaded = true;
+        },
         change: () => {
-          document.querySelector("#save").classList.add("enabled")
+          if (this.editor.loaded) {
+            document.querySelector("#save").classList.add("enabled")
+          }
         }
       },
       hooks: {
