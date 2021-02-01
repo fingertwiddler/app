@@ -7,6 +7,8 @@ Offpress is a distributed CMS powered by Git, in the browser.
 3. Free: There are many CMS services out there, but all of them have a "pricing model". This is because these platforms cost money to run, since they have to store all their user content on their server. Offpress doesn't require a server to operate because it's powered by [Offbase](https://offbase.org), a distributed web app framework that lets you replace centralized cloud components with distributed git.
 4. **Open:** Offpress is completely open source. In fact it's impossible for Offpress to be NOT open source because of the way it works. The whole point of [Offbase](https://offbase.org) powered apps like Offpress is that the entire application logic is self contained and delivered straight to the browser, creating a virtual cloud environment inside the browser.
 
+---
+
 # FAQ
 
 ## 1. Where is my site published?
