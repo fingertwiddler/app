@@ -22,7 +22,7 @@
     "to": "/bin/engine/index.html",
     "type": "text/html"
   }, {
-    "from": "/preview/:path",
+    "from": "/blog/post/:path",
     "to": "/home/blog/post/{{path}}/index.html"
   }, {
     "from": "/lib/:path",
