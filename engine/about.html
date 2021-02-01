@@ -119,7 +119,7 @@
     import { fs } from "/offbase.js"
     const template = Handlebars.compile(document.querySelector("#template").innerHTML)
     fs.promises.readFile("/bin/README.md", "utf8").then((content) => {
-      const html = marked(content, { baseUrl: "./about/")
+      const html = marked(content, { baseUrl: "./about/" })
       document.body.innerHTML = template({
         content: html,
       }).trim()
