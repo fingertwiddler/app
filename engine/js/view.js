@@ -98,7 +98,7 @@ export class View {
   async fill (path) {
     let { content, data, raw }  = await this.model.load(path)
     this.editor.setMarkdown(raw)
-    this.editor.loaded = true;
+    this.loaded = true;
     if (data.draft) {
       document.querySelector("#unpublish").classList.add("hidden")
       document.querySelector(".draft").classList.remove("hidden")
