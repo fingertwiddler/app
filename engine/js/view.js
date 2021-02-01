@@ -13,10 +13,10 @@ export class View {
       previewStyle: 'vertical',
       events: {
         load: () => {
-          this.editor.loaded = true;
+          this.loaded = true;
         },
         change: () => {
-          if (this.editor.loaded) {
+          if (this.loaded) {
             document.querySelector("#save").classList.add("enabled")
           }
         }
