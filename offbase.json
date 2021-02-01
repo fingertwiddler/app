@@ -23,7 +23,7 @@
     "type": "text/html"
   }, {
     "from": "/preview/:path",
-    "to": "/home/dest/post/{{path}}/index.html"
+    "to": "/home/blog/post/{{path}}/index.html"
   }, {
     "from": "/lib/:path",
     "to": "/lib/{{path}}/index.js",
