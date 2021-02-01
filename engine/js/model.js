@@ -146,6 +146,7 @@ export class Model {
     for(let item of d) {
       await this.git.remove({ fs: this.fs, dir: "/home", filepath: item[0] })
     }
+    await this.builder.build()
   }
   async saveImage(blob, callback) {
     let ab = await blob.arrayBuffer()
