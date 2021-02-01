@@ -39,7 +39,7 @@ export class View {
       options: {
         el: (() => {
           const button = document.createElement('button');
-          button.className = expand';
+          button.className = 'expand';
           button.innerHTML = "&lt; &gt;"
           return button;
         })(),
