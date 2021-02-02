@@ -68,12 +68,14 @@ export class View {
     if (this.model.src) this.fill(this.model.src)
     document.querySelector("#delete").addEventListener("click", async (e) => {
       if (!this.model.src) return;
-      let sure = confirm("are you sure?")
+      let sure = this.confirm("are you sure?", "yes", "no")
       if (sure) {
         await this.model.destroy()
-        let now = confirm("publish the deletion now? (otherwise your deletion will stay local until you publish later)")
+        let now = this.confirm("publish the deletion now? (otherwise your deletion will stay local until you publish later)", "yes", "no")
         if (now) {
           location.href = "/upload"
+        } else {
+          location.href = "."
         }
       }
     })
@@ -84,9 +86,11 @@ export class View {
     })
     document.querySelector("#unpublish").addEventListener("click", async (e) => {
       await this.model.unpublish(this.content())
-      let now = confirm("upload the unpublish action now? (this post will stay public on your site until you upload the unpublish action)")
+      let now = this.confirm("upload the unpublish action now? (this post will stay public on your site until you upload the unpublish action)", "yes", "no")
       if (now) {
         location.href = "/upload"
+      } else {
+        location.href = "."
       }
     })
     document.querySelector("#publish").addEventListener("click", async (e) => {
@@ -110,6 +114,21 @@ export class View {
       document.querySelector("#unpublish").classList.add("hidden")
       document.querySelector(".draft").classList.remove("hidden")
     }
+  }
+  confirm(title, c, d) {
+    return Swal.fire({
+      title: title,
+      showDenyButton: true,
+      confirmButtonText: c,
+      denyButtonText: d
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        return true
+      } else if (result.isDenied) {
+        return false;
+      }
+    })
   }
   content() {
     let raw = this.editor.getMarkdown()
