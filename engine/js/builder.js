@@ -78,7 +78,7 @@ export class Builder {
       return import(mod)
     }))
     for(let lib of libs) {
-      let res = await lib.default(o, this.config, {
+      let res = await lib.default("." + o, this.config, {
         fs: this.fs, git: this.git
       })
       if (res)  o = res
