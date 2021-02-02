@@ -219,7 +219,8 @@
     <script type='module'>
     import Handlebars from "https://jspm.dev/handlebars"
     import matter from "https://jspm.dev/gray-matter"
-    import { fs } from "/offbase.js"
+    import { fs, git, config } from "/offbase.js"
+    import { Builder } from "./js/builder.js"
 
     const PATH = "/home/src"
     const render = async (template, path) => {
@@ -252,7 +253,10 @@
       document.querySelectorAll(".updated").forEach((el) => {
         el.textContent = timeago.format(parseInt(el.textContent))
       })
-      document.querySelector("#upload").addEventListener("click", (e) => {
+      document.querySelector("#upload").addEventListener("click", async (e) => {
+        let c = await config()
+        let builder = new Builder({ fs, git, config: c })
+        await builder.build()
         location.href = "/upload"
       })
     })
