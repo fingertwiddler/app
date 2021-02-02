@@ -35,7 +35,7 @@
     "to": "/lib/{{path}}/index.js",
     "type": "application/javascript"
   }, {
-    "from": "/lib/:lib/:filename.js",
+    "from": "/plugin/:lib/:filename",
     "to": "/lib/{{lib}}/{{filename}}.js",
     "type": "application/javascript"
   }]
