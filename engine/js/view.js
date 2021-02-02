@@ -71,7 +71,10 @@ export class View {
       let sure = confirm("are you sure?")
       if (sure) {
         await this.model.destroy()
-        location.href = "/upload"
+        let now = confirm("publish the deletion now? (otherwise your deletion will stay local until you publish later)")
+        if (now) {
+          location.href = "/upload"
+        }
       }
     })
     document.querySelector("#preview").addEventListener("click", async (e) => {
@@ -81,7 +84,10 @@ export class View {
     })
     document.querySelector("#unpublish").addEventListener("click", async (e) => {
       await this.model.unpublish(this.content())
-      location.href = "/upload"
+      let now = confirm("upload the unpublish action now? (this post will stay public on your site until you upload the unpublish action)")
+      if (now) {
+        location.href = "/upload"
+      }
     })
     document.querySelector("#publish").addEventListener("click", async (e) => {
       await this.model.publish(this.content())
