@@ -89,6 +89,7 @@ export class View {
       await this.model.unpublish(this.content())
       let now = await this.confirm("upload the unpublish action now? (this post will stay public on your site until you upload the unpublish action)", "yes", "no")
       if (now) {
+        await this.model.build()
         location.href = "/upload"
       } else {
         location.href = "."
@@ -104,7 +105,6 @@ export class View {
         location.href = "./editor?src=" + path;
       } else {
         document.querySelector("#save").classList.remove("enabled")
-//        this.editor.setMarkdown(updatedContent)
       }
     });
   }
