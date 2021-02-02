@@ -74,7 +74,7 @@ export class Builder {
     await this.plugins("onpublish", publicItems)
   }
   async plugins (event, o) {
-    let libs = await Promise.all(this.config.modules[event].map((mod) => {
+    let libs = await Promise.all(this.config.trigger[event].map((mod) => {
       return import(".." + mod)
     }))
     for(let lib of libs) {
