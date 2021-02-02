@@ -34,5 +34,9 @@
     "from": "/lib/:path",
     "to": "/lib/{{path}}/index.js",
     "type": "application/javascript"
+  }, {
+    "from": "/lib/:lib/:filename.js",
+    "to": "/lib/{{lib}}/{{filename}}.js",
+    "type": "application/javascript"
   }]
 }
