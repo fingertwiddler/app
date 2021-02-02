@@ -41,8 +41,9 @@ export class Builder {
     let { content, data } = matter(md)
     data.permalink = filename
     let html = marked(content, { baseUrl: "../../" }) 
-    await this.processContent( { content, html, data, filename } )
-    await this.processImages({ content })
+    //await this.processContent( { content, html, data, filename } )
+    //await this.processImages({ content })
+    await this.plugins("onsave", { content, html, data, filename })
     return { html, data }
   }
   // run a root level build before publishing
@@ -70,13 +71,17 @@ export class Builder {
     for(let item of publicItems) {
       await this.buildPost(item.key)
     }
-    let libs = await Promise.all(this.config.settings.events.publish.map((mod) => {
-      return import(`../lib/${mod}`)
+    await this.plugins("onpublish", publicItems)
+  }
+  async plugins (event, o) {
+    let libs = await Promise.all(this.config.plugins[event].map((mod) => {
+      return import(mod)
     }))
     for(let lib of libs) {
-      await lib.default(publicItems, this.config, {
+      let res = await lib.default(o, this.config, {
         fs: this.fs, git: this.git
       })
+      if (res)  o = res
     }
   }
 }
