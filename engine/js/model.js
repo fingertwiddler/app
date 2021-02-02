@@ -51,9 +51,10 @@ export class Model {
     if (updated.length === 0) {
       console.log("no update")
       alert("no update")
-      return;
+      return false;
     }
     await this.builder.build()
+    return true;
   }
   async save( { content, data, raw }) {
     let matches = raw.matchAll(/!\[.*?\]\((.*?)\)/g)

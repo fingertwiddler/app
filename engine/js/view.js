@@ -96,8 +96,10 @@ export class View {
       }
     })
     document.querySelector("#publish").addEventListener("click", async (e) => {
-      await this.model.publish(this.content())
-      location.href = "/upload"
+      let updated = await this.model.publish(this.content())
+      if (updated) {
+        location.href = "/upload"
+      }
     })
     document.querySelector("#save").addEventListener("click", async (e) => {
       let { status, path } = await this.model.save(this.content())
