@@ -75,7 +75,7 @@ export class Builder {
   }
   async plugins (event, o) {
     let libs = await Promise.all(this.config.modules[event].map((mod) => {
-      return import(mod)
+      return import(".." + mod)
     }))
     for(let lib of libs) {
       let res = await lib.default(o, this.config, {
