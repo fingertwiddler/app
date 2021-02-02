@@ -69,10 +69,10 @@ export class View {
     if (this.model.src) this.fill(this.model.src)
     document.querySelector("#delete").addEventListener("click", async (e) => {
       if (!this.model.src) return;
-      let sure = this.confirm("are you sure?", "yes", "no")
+      let sure = await this.confirm("are you sure?", "yes", "no")
       if (sure) {
         await this.model.destroy()
-        let now = this.confirm("publish the deletion now? (otherwise your deletion will stay local until you publish later)", "yes", "no")
+        let now = await this.confirm("publish the deletion now? (otherwise your deletion will stay local until you publish later)", "yes", "no")
         if (now) {
           location.href = "/upload"
         } else {
@@ -87,7 +87,7 @@ export class View {
     })
     document.querySelector("#unpublish").addEventListener("click", async (e) => {
       await this.model.unpublish(this.content())
-      let now = this.confirm("upload the unpublish action now? (this post will stay public on your site until you upload the unpublish action)", "yes", "no")
+      let now = await this.confirm("upload the unpublish action now? (this post will stay public on your site until you upload the unpublish action)", "yes", "no")
       if (now) {
         location.href = "/upload"
       } else {
