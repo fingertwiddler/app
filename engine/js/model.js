@@ -42,7 +42,6 @@ export class Model {
     data.draft = true
     let updatedContent = matter.stringify(content, data)
     await this.fs.promises.writeFile(this.src, updatedContent)
-    await this.builder.build()
   }
   async publish({ content, data }) {
     data.draft = false;
