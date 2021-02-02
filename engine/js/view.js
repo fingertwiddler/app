@@ -1,5 +1,6 @@
 import matter from "https://jspm.dev/gray-matter"
 import Editor from "https://jspm.dev/@toast-ui/editor"
+import Swal from "https://jspm.dev/sweetalert2"
 export class View {
   constructor (o) {
     this.config = o.config
